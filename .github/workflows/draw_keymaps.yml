@@ -11,18 +11,18 @@ jobs:
     permissions:
       contents: write
     with:
-      keymap_patterns: "config/keymap/qwerty.keymap"
-      config_path:    "keymap-drawer/config.yaml"
-      output_folder:  "keymap-drawer/base"
-      json_path:      "config"
-      parse_args:     "-c 12"
-      draw_args:      "qwerty:'-s Base --keys-only'"
-      amend_commit:   false
-      destination:    artifact
+      keymap_patterns: "config/keymap/enthium.keymap"
+      config_path: "keymap-drawer/config.yaml"
+      output_folder: "keymap-drawer/base"
+      json_path: "config"
+      parse_args: "-c 12"
+      draw_args: "enthium:'-s Base --keys-only'"
+      amend_commit: false
+      destination: artifact
       commit_message: "Add BASE-layer keymaps"
       artifact_name: base-keymap
-      fail_on_error:  true
-      debug_mode:     false
+      fail_on_error: true
+      debug_mode: false
   draw_full_keymap:
     name: Draw FULL keymaps
     needs: draw_base_keymap
@@ -30,18 +30,18 @@ jobs:
     permissions:
       contents: write
     with:
-      keymap_patterns: "config/keymap/qwerty.keymap"
-      config_path:    "keymap-drawer/config.yaml"
-      output_folder:  "keymap-drawer"
-      json_path:      "config"
-      parse_args:     "-c 12"
-      draw_args:      ""
-      amend_commit:   false
-      destination:    artifact
+      keymap_patterns: "config/keymap/enthium.keymap"
+      config_path: "keymap-drawer/config.yaml"
+      output_folder: "keymap-drawer"
+      json_path: "config"
+      parse_args: "-c 12"
+      draw_args: ""
+      amend_commit: false
+      destination: artifact
       commit_message: "Add full keymaps"
       artifact_name: full-keymaps
-      fail_on_error:  true
-      debug_mode:     false
+      fail_on_error: true
+      debug_mode: false
 
   publish_keymaps:
     name: Publish all keymaps
