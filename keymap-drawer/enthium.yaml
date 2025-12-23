@@ -36,11 +36,11 @@ layers:
   - G
   - P
   - V
-  - BS NAV
+  - ''
   - ESC SCRL SLOW
-  - SYM LCLK
   - SPACE NUM
-  - ENTER
+  - SYM LCLK
+  - ENTER NAV
   - R
   Num:
   - ''
@@ -306,3 +306,7 @@ combos:
   k: Mid CLK
 - p: [27, 28]
   k: R CLK
+- p: [31, 32]
+  k: BACK SPACE
+- p: [31, 32, 33]
+  k: ENTER
