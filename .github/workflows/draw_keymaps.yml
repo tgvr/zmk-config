@@ -11,12 +11,12 @@ jobs:
     permissions:
       contents: write
     with:
-      keymap_patterns: "config/keymap/enthium.keymap"
+      keymap_patterns: "config/keymap/*.keymap"
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer/base"
       json_path: "config"
       parse_args: "-c 12"
-      draw_args: "qwerty:'-s Base --keys-only'"
+      draw_args: "charybdis:'-s Base --keys-only'"
       amend_commit: false
       destination: artifact
       commit_message: "Add BASE-layer keymaps"
@@ -30,7 +30,7 @@ jobs:
     permissions:
       contents: write
     with:
-      keymap_patterns: "config/keymap/enthium.keymap"
+      keymap_patterns: "config/keymap/*.keymap"
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer"
       json_path: "config"
