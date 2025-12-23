@@ -15,14 +15,14 @@ layers:
   - L_BASE L_EXTRAS
   - B
   - {t: C, h: LCTRL}
-  - {t: I, h: LALT}
-  - {t: A, h: LCMD}
-  - {t: E, h: LSHFT}
+  - {t: I, h: LSHFT}
+  - {t: A, h: LALT}
+  - {t: E, h: LCMD}
   - {t: '-', s: _}
   - K
-  - {t: H, h: RSHFT}
-  - {t: T, h: RCMD}
-  - {t: N, h: LALT}
+  - {t: H, h: RCMD}
+  - {t: T, h: LALT}
+  - {t: N, h: RSHFT}
   - {t: S, h: RCTRL}
   - F
   - TAB
