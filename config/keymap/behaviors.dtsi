@@ -128,7 +128,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&lt 7 ESC>, <&mo 6>; // hold, tap, double_tap
+            bindings = <&lt 6 ESC>, <&mo 5>; // hold, tap, double_tap
         };
 
         lt_nav: nav_layer_tap {
@@ -202,7 +202,7 @@
         td_bore: BASE_or_EXTRA {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mo 5>, <&to 0>;
+            bindings = <&mo 4>, <&to 0>;
         };
 
         mm_qm_ex: question_exclamation {
