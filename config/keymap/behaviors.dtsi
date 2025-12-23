@@ -282,11 +282,11 @@
             bindings = <&mo_kp 1 SPACE>, <&kp SPACE>; // hold, tap, double_tap
         };
 
-        td_bs_nav: td_bs_nav {
+        td_enter_nav: td_enter_nav {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <110>;
-            bindings = <&lt_nav 2 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
+            bindings = <&lt_nav 2 ENTER>, <&kp ENTER>; // hold, tap, double_tap
         };
 
         td_base_extras: td_base_extras {
