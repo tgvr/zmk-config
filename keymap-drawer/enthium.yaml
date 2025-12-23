@@ -12,7 +12,7 @@ layers:
   - D
   - W
   - Z
-  - L_BASE L_EXTRAS
+  - ''
   - B
   - {t: C, h: LCTRL}
   - {t: I, h: LSHFT}
@@ -25,7 +25,7 @@ layers:
   - {t: N, h: RSHFT}
   - {t: S, h: RCTRL}
   - F
-  - TAB
+  - ''
   - {t: '''', s: '"'}
   - {t: ',', s: <}
   - {t: ., s: '>'}
@@ -67,7 +67,7 @@ layers:
   - {t: '6', s: F6}
   - {t: '*', s: F11}
   - /
-  - {t: ▽, type: trans}
+  - ''
   - ''
   - X
   - ''
@@ -91,11 +91,11 @@ layers:
   - ''
   - WHEEL U
   - WHEEL R
-  - TMUX DETCH
-  - TMUX ATTCH
-  - TMUX NEXT
-  - TMUX SESH
-  - TMUX SYNC
+  - ''
+  - ''
+  - UP
+  - ''
+  - ''
   - ''
   - ''
   - BACK
@@ -106,8 +106,8 @@ layers:
   - HSPLIT
   - LEFT
   - DOWN
-  - UP
   - RIGHT
+  - ''
   - ''
   - TAB
   - MOVE L
@@ -300,13 +300,13 @@ combos:
   l: [Base]
 - p: [38, 39]
   k: L_BASE L_EXTRA
-- p: [25, 26]
-  k: L CLK
-- p: [26, 27]
-  k: Mid CLK
-- p: [27, 28]
-  k: R CLK
 - p: [31, 32]
-  k: BACK SPACE
+  k: L CLK
+- p: [32, 33]
+  k: R CLK
 - p: [31, 32, 33]
-  k: ENTER
+  k: Mid CLK
+- p: [3, 4]
+  k: TAB
+- p: [7, 8]
+  k: BACK SPACE
