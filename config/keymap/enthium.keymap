@@ -23,13 +23,13 @@
 // ╰──────┴──────┴──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┴──────┴──────┴──────╯
 //                         36     37     38        39     40
 //                      ╰──────┴──────┴──────╯  ╰──────┴──────╯
-// #define BASE    0
-// #define NUM     1
-// #define NAV     2
-// #define SYM     3
-// #define EXTRAS  4
-// #define SLOW    5
-// #define SCROLL  6
+#define L_BASE    0
+#define L_NUM     1
+#define L_NAV     2
+#define L_SYM     3
+#define L_EXTRAS  4
+#define L_SLOW    5
+#define L_SCROLL  6
 
     keymap {
         compatible = "zmk,keymap";
@@ -39,11 +39,11 @@
             display-name = "Base";
             bindings = <
 // ╭───────────────┬────────────────┬────────────────┬─────────────────┬─────────────────┬─────────────────╮  ╭─────────────────┬──────────────────┬──────────────────┬─────────────────┬────────────────────────┬────────────────╮
-        &none            &kp Q            &kp Y            &kp O             &kp U          &mm_eq_pl               &kp X               &kp L              &kp D              &kp W             &kp Z              &td_base_extras
+        &none            &kp Q            &kp Y            &kp O             &kp U          &mm_eq_pl               &kp X               &kp L              &kp D              &kp W             &kp Z               &none
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼─────────────────┤  ├─────────────────┼──────────────────┼──────────────────┼─────────────────┼────────────────────────┼────────────────┤
-        &kp B       &ht_left LCTRL C  &ht_left LSHFT I  &ht_left LALT A  &ht_left LCMD E    &mm_min_under           &kp K         &ht_right RCMD H  &ht_right RALT T   &ht_right RSHFT N    &ht_right RCTRL S           &kp F
+        &kp B       &ht_left LCTRL C  &ht_left LSHFT I  &ht_left LALT A  &ht_left LCMD E    &mm_min_under           &kp K         &ht_right RCMD H  &ht_right RALT T   &ht_right RSHFT N    &ht_right RCTRL S       &kp F
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼─────────────────┤  ├─────────────────┼──────────────────┼──────────────────┼─────────────────┼────────────────────────┼────────────────┤
-        &kp TAB         &mm_sqt_dqt     &mm_cm_lt       &mm_prd_gt          &mm_sc_co       &mm_fslh_qm             &kp J               &kp M              &kp G              &kp P             &kp V                 &none
+        &none         &mm_sqt_dqt     &mm_cm_lt       &mm_prd_gt          &mm_sc_co       &mm_fslh_qm             &kp J               &kp M              &kp G              &kp P             &kp V               &none
 // ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼─────────────────┤  ├─────────────────┼──────────────────┼──────────────────┴─────────────────┴────────────────────────┴────────────────╯
                                                       &td_esc_scrl_slow   &td_space_num     &td_clk              &td_enter_nav           &kp R
                                                   // ╰─────────────────┴─────────────────┴─────────────────╯  ╰─────────────────┴──────────────────╯
@@ -54,20 +54,21 @@
         NUM {
             display-name = "Num";
             bindings = <
-&none   &none  &none   &none  &none          &none            &kp PLUS     &mm_f7             &mm_f8             &mm_f9             &mm_f10            &none
-&none   &none  &none  &none  &kp BACKSPACE  &kp LSHIFT       &kp KP_MINUS &mm_f4             &mm_f5             &mm_f6             &mm_f11            &kp KP_SLASH
-&trans  &none  &kp X  &none  &none          &none            &kp EQUAL    &mm_f1             &mm_f2             &mm_f3             &mm_f12            &kp BACKSPACE
-                       &none  &none          &trans           &kp N0     &kp SPACE
+&none   &none   &none   &none  &none            &none                   &kp PLUS        &mm_f7      &mm_f8  &mm_f9  &mm_f10     &none
+&none   &none   &none   &none  &kp BACKSPACE    &kp LSHIFT              &kp KP_MINUS    &mm_f4      &mm_f5  &mm_f6  &mm_f11     &kp KP_SLASH
+&none   &none   &kp X   &none  &none            &none                   &kp EQUAL       &mm_f1      &mm_f2  &mm_f3  &mm_f12     &kp BACKSPACE
+                        &none  &none            &trans                  &kp N0          &kp SPACE
             >;
         };
 
+// TODO: add mouse buttons that can be used with mac mouse fix somewhere
 // TODO: optimize layer
         NAV {
             display-name = "Nav";
             bindings = <
-&none       &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
-&none       &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &h_split         &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
-&kp TAB     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &v_split         &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
+&none       &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &none          &none               &kp UP      &none               &none       &none
+&none       &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &h_split       &kp LEFT_ARROW      &kp DOWN    &kp RIGHT_ARROW     &none       &none
+&kp TAB     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &v_split       &kp HOME            &kp PG_DN   &kp PG_UP           &kp END     &none
                                                       &none   &none   &none               &none   &trans
             >;
         };
