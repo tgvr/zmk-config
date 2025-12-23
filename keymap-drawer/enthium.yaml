@@ -6,7 +6,7 @@ layers:
   - Y
   - O
   - U
-  - mm eq pl
+  - {t: '=', s: +}
   - X
   - L
   - D
@@ -18,7 +18,7 @@ layers:
   - {t: I, h: LALT}
   - {t: A, h: LCMD}
   - {t: E, h: LSHFT}
-  - mm min under
+  - {t: '-', s: _}
   - K
   - {t: H, h: RSHFT}
   - {t: T, h: RCMD}
@@ -26,11 +26,11 @@ layers:
   - {t: S, h: RCTRL}
   - F
   - TAB
-  - mm sqt dqt
-  - mm cm lt
-  - mm prd gt
-  - mm sc co
-  - mm fslh qm
+  - {t: '''', s: '"'}
+  - {t: ',', s: <}
+  - {t: ., s: '>'}
+  - {t: ;, s: ':'}
+  - {t: /, s: '?'}
   - J
   - M
   - G
