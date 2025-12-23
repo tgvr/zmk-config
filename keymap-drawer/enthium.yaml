@@ -21,7 +21,7 @@ layers:
   - {t: '-', s: _}
   - K
   - {t: H, h: RCMD}
-  - {t: T, h: LALT}
+  - {t: T, h: RALT}
   - {t: N, h: RSHFT}
   - {t: S, h: RCTRL}
   - F
