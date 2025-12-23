@@ -226,8 +226,6 @@
             mods          = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-
-
         mm_eq_pl: equal_plus {
             compatible    = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
