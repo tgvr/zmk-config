@@ -38,10 +38,94 @@ layers:
   - V
   - ''
   - ESC SCRL SLOW
-  - SPACE NUM
-  - SYM LCLK
-  - ENTER NAV
-  - R
+  - SPACE L_LOWER
+  - NUM LCLK
+  - ENTER
+  - R L_RAISE
+  Lower:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PG UP
+  - UP
+  - HOME
+  - ''
+  - ''
+  - ''
+  - BACK
+  - LSHFT
+  - LALT
+  - LCMD
+  - FWD
+  - ''
+  - LEFT
+  - DOWN
+  - RIGHT
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PG DN
+  - ''
+  - END
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Raise:
+  - ''
+  - '~'
+  - $
+  - ^
+  - ''
+  - ''
+  - '&'
+  - +
+  - '['
+  - ']'
+  - '%'
+  - \
+  - ''
+  - _
+  - <
+  - '>'
+  - BACK SPACE
+  - ''
+  - '`'
+  - '-'
+  - (
+  - )
+  - '*'
+  - '|'
+  - ''
+  - ''
+  - ''
+  - '#'
+  - ''
+  - ''
+  - ''
+  - '='
+  - '{'
+  - '}'
+  - '@'
+  - /
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   Num:
   - ''
   - ''
@@ -59,8 +143,8 @@ layers:
   - ''
   - ''
   - ''
-  - BACK SPACE
-  - LSHIFT
+  - ''
+  - ''
   - '-'
   - {t: '4', s: F4}
   - {t: '5', s: F5}
@@ -69,7 +153,7 @@ layers:
   - /
   - ''
   - ''
-  - X
+  - ''
   - ''
   - ''
   - ''
@@ -79,100 +163,16 @@ layers:
   - {t: '3', s: F3}
   - {t: ., s: F12}
   - BACK SPACE
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '0'
   - SPACE
-  Nav:
-  - ''
-  - WHEEL L
-  - WHEEL D
-  - ''
-  - WHEEL U
-  - WHEEL R
-  - ''
-  - ''
-  - UP
-  - ''
-  - ''
-  - ''
-  - ''
-  - BACK
-  - LALT
-  - LSHFT
-  - LCTRL
-  - FWD
-  - HSPLIT
-  - LEFT
-  - DOWN
-  - RIGHT
-  - ''
-  - ''
-  - TAB
-  - MOVE L
-  - MOVE D
-  - MOVE UP
-  - MOVE R
-  - ''
-  - VSPLIT
-  - HOME
-  - PG DN
-  - PG UP
-  - END
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  Sym:
-  - ''
-  - '~'
-  - $
-  - ^
-  - '&move_line_up'
-  - '&mc_add_above'
-  - '&'
-  - +
-  - '['
-  - ']'
-  - '%'
-  - \
-  - ''
-  - _
-  - <
-  - '>'
-  - BACK SPACE
-  - '&delete_line'
-  - '`'
-  - '-'
-  - (
-  - )
-  - '*'
-  - '|'
-  - ''
-  - ~/
-  - ''
-  - '#'
-  - '&move_line_down'
-  - '&mc_add_below'
-  - '```'
-  - '='
-  - '{'
-  - '}'
-  - '@'
-  - /
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  Xtra:
+  Adjust:
   - ZMK Studio
-  - SHRUG
-  - LGTM
-  - GIT COMMIT
+  - ''
+  - ''
+  - ''
   - ''
   - BRIGHT ▲
   - {t: BT, h: '0'}
@@ -181,8 +181,8 @@ layers:
   - {t: BT, h: '3'}
   - OUT TOG
   - BT CLR
-  - SLEEP
-  - sudo!!
+  - ''
+  - ''
   - ''
   - ''
   - ''
@@ -190,26 +190,26 @@ layers:
   - ''
   - PREVIOUS
   - PLAY PAUSE
-  - STOP
   - NEXT
   - ''
-  - LOCK
-  - UNDO
-  - CUT
-  - COPY
-  - PASTE
   - ''
-  - NEW DIR
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - MUTE
   - VOLUME DOWN
   - VOLUME UP
   - PRINT SCREEN
   - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   Slow:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -295,9 +295,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [17, 18]
-  k: CAPS WORD
-  l: [Base]
 - p: [38, 39]
   k: L_BASE L_EXTRA
 - p: [31, 32]
