@@ -139,13 +139,6 @@
             bindings = <&mo>, <&kp>;
         };
 
-        td_space_nav: td_space {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <110>;
-            bindings = <&lt_nav L_NAV SPACE>, <&kp SPACE>; // hold, tap, double_tap
-        };
-
         mo_clk: mo_click {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -155,11 +148,11 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        td_clk: td_clk {
+        td_clk_num: td_clk_num {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&mo_clk L_SYM LCLK>, <&mkp LCLK>; // hold, tap, double_tap
+            bindings = <&mo_clk L_NUM LCLK>, <&mkp LCLK>; // hold, tap, double_tap
         };
 
         mo_kp: mo_kp {
@@ -175,7 +168,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&mo_kp L_NUM BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
+            bindings = <&mo_kp L_LOWER BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
         };
 
         httl: ht_two_layers {
@@ -184,12 +177,6 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <125>;
-        };
-
-        td_layers: td_layer_swap {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&to L_BASE>, <&to L_EXTRAS>; // tap, double_tap
         };
 
         td_clk_scrl: td_click_or_scroll {
@@ -202,7 +189,7 @@
         td_bore: BASE_or_EXTRA {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mo L_EXTRAS>, <&to L_BASE>;
+            bindings = <&mo L_ADJUST>, <&to L_BASE>;
         };
 
         mm_qm_ex: question_exclamation {
@@ -275,24 +262,18 @@
             mods          = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        td_space_num: td_space_num {
+        td_space_lower: td_space_lower {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&mo_kp L_NUM SPACE>, <&kp SPACE>; // hold, tap, double_tap
+            bindings = <&mo_kp L_LOWER SPACE>, <&kp SPACE>; // hold, tap, double_tap
         };
 
-        td_enter_nav: td_enter_nav {
+        td_r_raise: td_r_raise {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <110>;
-            bindings = <&lt_nav L_NAV ENTER>, <&kp ENTER>; // hold, tap, double_tap
-        };
-
-        td_base_extras: td_base_extras {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&to L_BASE>, <&to L_EXTRAS>; // tap, double_tap
+            bindings = <&lt_nav L_RAISE R>, <&kp R>; // hold, tap, double_tap
         };
     };
 };
