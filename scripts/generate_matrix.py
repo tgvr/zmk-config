@@ -7,6 +7,11 @@ boards = ["nice_nano_v2", "seeeduino_xiao_ble"]
 keymap_dir = Path(__file__).parent.parent / "config" / "keymap"
 keymaps = sorted(p.stem for p in keymap_dir.glob("*.keymap"))
 
+boards_to_short_names = {
+    "nice_nano_v2": "nano",
+    "seeeduino_xiao_ble": "xiao",
+}
+
 groups = []
 for board in boards:
     for keymap in keymaps:
@@ -15,7 +20,7 @@ for board in boards:
                 {
                     "keymap": keymap,
                     "format": fmt,
-                    "name": f"{keymap}-{fmt}",
+                    "name": f"{keymap}-{fmt}-{boards_to_short_names[board]}",
                     "board": board,
                 }
             )
@@ -25,7 +30,7 @@ for board in boards:
         {
             "keymap": "default",
             "format": "reset",
-            "name": f"reset-{board}",
+            "name": f"reset-{boards_to_short_names[board]}",
             "board": board,
         }
     )
