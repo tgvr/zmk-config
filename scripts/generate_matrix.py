@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 
 # === CONFIGURATION ===
-boards = ["nice_nano_v2", "seeeduino_xiao_ble"]
 # automatically find all *.keymap filenames under ../config/keymap
 keymap_dir = Path(__file__).parent.parent / "config" / "keymap"
 keymaps = sorted(p.stem for p in keymap_dir.glob("*.keymap"))
@@ -13,19 +12,31 @@ boards_to_short_names = {
 }
 
 groups = []
-for board in boards:
-    for keymap in keymaps:
-        for fmt in ["bt", "dongle"]:
-            groups.append(
-                {
-                    "keymap": keymap,
-                    "format": fmt,
-                    "name": f"{keymap}-{fmt}-{boards_to_short_names[board]}",
-                    "board": board,
-                }
-            )
+board = "nice_nano_v2"
+for keymap in keymaps:
+    for fmt in ["bt", "dongle"]:
+        groups.append(
+            {
+                "keymap": keymap,
+                "format": fmt,
+                "name": f"{keymap}-{fmt}-{boards_to_short_names[board]}",
+                "board": board,
+            }
+        )
 
-    # single reset entry
+board = "seeeduino_xiao_ble"
+for keymap in keymaps:
+    for fmt in ["dongle_only"]:
+        groups.append(
+            {
+                "keymap": keymap,
+                "format": fmt,
+                "name": f"{keymap}-{fmt}-{boards_to_short_names[board]}",
+                "board": board,
+            }
+        )
+
+for board in boards_to_short_names.keys():
     groups.append(
         {
             "keymap": "default",
