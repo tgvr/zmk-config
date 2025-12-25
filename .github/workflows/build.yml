@@ -35,14 +35,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: { name: generated-keymaps, path: config/keymap/ }
 
-      - name: Install yaml2json
-        run: python3 -m pip install remarshal
-
       - name: Build-matrix JSON
-        run: yaml2json build.yaml > build.json
-
-      # - name: Build-matrix JSON
-      #   run: python scripts/generate_matrix.py > build.json
+        run: python scripts/generate_matrix.py > build.json
 
       - id: make-groups
         run: |
