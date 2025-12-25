@@ -113,9 +113,16 @@ jobs:
         if: ${{ matrix.combo.format != 'reset' }}
         shell: bash
         run: |
+          declare -A LIST=(
+            [bt]="bt"
+            [dongle]="dongle"
+            [dongle_only]="dongle"
+          )
+          FM="${{ matrix.combo.format }}"
+
           ZMK_SHIELDS_DIR="$GITHUB_WORKSPACE/zmk/app/boards/shields"
           mkdir -p "$ZMK_SHIELDS_DIR"
-          cp -r "boards/shields/charybdis_${{ matrix.combo.format }}" "$ZMK_SHIELDS_DIR/"
+          cp -r "boards/shields/charybdis_${LIST[$FM]}" "$ZMK_SHIELDS_DIR/"
           for d in "$ZMK_SHIELDS_DIR"/*; do
             for f in charybdis-layouts.dtsi charybdis_pmw3610.dtsi charybdis_pointer.dtsi; do
               [ -f "config/$f" ] && cp "config/$f" "$d/" || true
@@ -153,7 +160,7 @@ jobs:
             if [[ "$FM" == "bt" && "$SH" == *right ]]; then
               SNIPPET_OPTION="-DSNIPPET=studio-rpc-usb-uart"
             # studio RPC on dongle of dongle builds
-            elif [[ "$FM" == "dongle" && "$SH" == *dongle ]]; then
+            elif [[ ( "$FM" == "dongle" || "$FM" == "dongle_only" ) && "$SH" == *dongle ]]; then
               SNIPPET_OPTION="-DSNIPPET=studio-rpc-usb-uart"
             else
               SNIPPET_OPTION=""
