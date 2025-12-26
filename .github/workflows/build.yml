@@ -173,6 +173,12 @@ jobs:
               KEYMAP_OPTION=""
             fi
 
+            if [[ $FM == "dongle_only && $SH == "charybdis_dongle" ]]; then
+              ADDITIONAL_SHIELD="prospector_adapter"
+            else
+              ADDITIONAL_SHIELD=""
+            fi
+
             # ───────── DEBUG LOGS ─────────
             echo "🪳 Debug Logs"
             echo "Build Variables:"
@@ -196,7 +202,7 @@ jobs:
               -b "$BD" \
               -- \
               "-DZMK_CONFIG=$CONFIG_DIR" \
-              "-DSHIELD=$SH" \
+              "-DSHIELD=$SH $ADDITIONAL_SHIELD" \
               "$KEYMAP_OPTION" \
               "$SNIPPET_OPTION"
 
