@@ -173,7 +173,7 @@ jobs:
               KEYMAP_OPTION=""
             fi
 
-            if [[ $FM == "dongle_only && $SH == "charybdis_dongle" ]]; then
+            if [[ $FM == "dongle_only" && $SH == "charybdis_dongle" ]]; then
               ADDITIONAL_SHIELD="prospector_adapter"
             else
               ADDITIONAL_SHIELD=""
