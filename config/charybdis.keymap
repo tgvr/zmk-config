@@ -1,0 +1,4 @@
+#include "zmk-helpers/key-labels/42.h"
+#include "base.keymap"
+
+/{ chosen { zmk,physical-layout = &charybdis_physical_layout; }; };

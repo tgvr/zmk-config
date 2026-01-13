@@ -1,0 +1,14 @@
+file_format: "1"
+id: charybdis
+name: Charybdis Mini
+type: shield
+url: https://github.com/Bastardkb/Charybdis/
+requires: [pro_micro]
+features:
+  - Keys
+  - Mouse keys pointer
+  - Trackball pointer
+  - Bluetooth
+siblings:
+  - charybdis_left
+  - charybdis_right
