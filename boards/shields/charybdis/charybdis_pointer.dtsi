@@ -1,6 +1,8 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
-#include "layers.h"
+
+#define SLOW 5
+#define SCROLL 6
 
 &trackball_listener {
     /* base processor chain on all layers */

@@ -18,21 +18,27 @@ manifest:
 
     # urob's ZMK modules
     - name: zmk-adaptive-key
+      remote: urob
       path: modules/zmk/adaptive-key
       revision: v0.3
     - name: zmk-auto-layer
+      remote: urob
       path: modules/zmk/auto-layer
       revision: v0.3
     - name: zmk-helpers
+      remote: urob
       path: modules/zmk/helpers
       revision: v0.3
     - name: zmk-leader-key
+      remote: urob
       path: modules/zmk/leader-key
       revision: v0.3
     - name: zmk-tri-state
+      remote: urob
       path: modules/zmk/tri-state
       revision: v0.3
     - name: zmk-unicode
+      remote: urob
       path: modules/zmk/unicode
       revision: v0.3
 
