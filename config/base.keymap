@@ -32,6 +32,12 @@
   quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+&uc {
+  default-mode = <UC_MODE_MACOS>;
+  minimum-length = <0>;            // Set to desired minimum input length
+};
+
+
 /* Homerow mods */
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4
@@ -152,17 +158,17 @@ ZMK_BASE_LAYER(Base,
 )
 
 ZMK_BASE_LAYER(Lower,
-    ___         &kp C_BRI_UP    &kp C_VOL_UP    &kp LBKT    &kp RBKT    &kp TILDE   ,   &kp HOME    &kp END     &kp UP      &kp C_PREV  ___         ___ ,
+    ___         &kp C_BRI_UP    &kp C_VOL_UP    &kp LBKT    &kp RBKT    &kp TILDE   ,   &kp HOME    &kp PG_UP   &kp UP      &kp C_PREV  ___         ___ ,
     &kp C_MUTE  &kp LCTRL       &kp LSHFT       &kp LALT    &kp LGUI    &kp GRAVE   ,   &kp BSPC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp C_PP    ___ ,
-    ___         &kp C_BRI_DN    &kp C_VOL_DN    &kp LBRC    &kp RBRC    &kp BSLH    ,   &kp PG_UP   &kp PG_DN   &kp PIPE    &kp C_NEXT  ___         ___ ,
+    ___         &kp C_BRI_DN    &kp C_VOL_DN    &kp LBRC    &kp RBRC    &kp BSLH    ,   &kp END     &kp PG_DN   &kp PIPE    &kp C_NEXT  ___         ___ ,
                                                 ___         ___         ___         ,   ___         ___
 )
 
 ZMK_BASE_LAYER(Num,
-    ___     ___         &kp AT      &kp HASH    &kp CARET   &kp DLLR    ,   &kp STAR    &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___ ,
-    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL    ,   &kp PLUS    &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     ___ ,
-    ___     ___         ___         &kp AMPS    &kp LPAR    &kp RPAR    ,   &kp PRCNT   &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     ___ ,
-                                    ___         ___         ___         ,   ___         &kp N0
+    ___     ___         &kp AT      &kp HASH    &kp CARET   &kp DLLR                    ,   &kp STAR    &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___ ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL                    ,   &kp PLUS    &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     &kp PRCNT ,
+    ___     ___         &kp AMPS    &kp LPAR    &kp RPAR    &uc UC_CURR_INDIAN_RUPEE    ,   &kp N0      &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     ___ ,
+                                    ___         ___         ___                         ,   ___         ___
 )
 
 ZMK_BASE_LAYER(Raise,
