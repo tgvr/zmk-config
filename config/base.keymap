@@ -153,7 +153,7 @@ ZMK_CONDITIONAL_LAYER(adjust, LOWER RAISE, ADJUST) // LOWER + RAISE --> ADJUST.
 ZMK_BASE_LAYER(Base,
     &kp TAB     &kp Q               &kp Y               &kp O               &kp U               &mm_eq_pl       ,   &kp X           &kp L               &kp D           &kp P           &kp Z           XXX     ,
     &kp B       &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &mm_min_under   ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp W   ,
-    XXX         &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_fslh_qm         &mm_sc_co       ,   &kp J           &kp M               &kp G           &kp F           &kp V           XXX     ,
+    XXX         &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_sc_co           &mm_fslh_qm     ,   &kp J           &kp M               &kp G           &kp F           &kp V           XXX     ,
                                                         &td_esc_scrl_slow   &lt_spc LOWER 0     SMART_NUM       ,   MAGIC_SHIFT     &lt RAISE R
 )
 
