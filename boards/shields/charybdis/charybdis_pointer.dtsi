@@ -4,13 +4,6 @@
 #define SLOW 5
 #define SCROLL 6
 
-ib_hwheel_scaler: ib_hwheel_scaler {
-    compatible = "zmk,input-behavior-scaler";
-    #binding-cells = <2>;
-    evt-type = <INPUT_EV_REL>;
-    input-code = <INPUT_REL_HWHEEL>;
-};
-
 &trackball_listener {
     /* base processor chain on all layers */
     input-processors = <&zip_xy_scaler 5 5>;
@@ -19,9 +12,9 @@ ib_hwheel_scaler: ib_hwheel_scaler {
     scroller: scroller {
         layers           = <SCROLL>;
         input-processors = <
-            &zip_xy_scaler 1 40                              // Scales the scroll speed
+            &zip_y_scaler 1 40                               // Scales the scroll speed
+            &zip_x_scaler 0 0                                // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
-            &ib_hwheel_scaler 0 0
             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the scroll direction
         >;
     };
