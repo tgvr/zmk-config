@@ -165,10 +165,10 @@ ZMK_BASE_LAYER(Lower,
 )
 
 ZMK_BASE_LAYER(Num,
-    ___     ___         &kp AT      &kp HASH    &kp CARET   &kp DLLR                    ,   &kp STAR    &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___ ,
-    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL                    ,   &kp PLUS    &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     &kp PRCNT ,
-    ___     ___         &kp AMPS    &kp LPAR    &kp RPAR    &uc UC_CURR_INDIAN_RUPEE    ,   &kp N0      &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     ___ ,
-                                    ___         ___         ___                         ,   ___         ___
+    ___     ___         &kp AT      &kp HASH    &kp CARET   &kp DLLR    ,   &kp STAR    &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___ ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL    ,   &kp PLUS    &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     &kp PRCNT ,
+    ___     ___         &kp AMPS    &kp LPAR    &kp RPAR    ___         ,   &kp N0      &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     ___ ,
+                                    ___         ___         ___         ,   ___         ___
 )
 
 ZMK_BASE_LAYER(Raise,
