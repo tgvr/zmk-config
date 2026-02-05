@@ -167,7 +167,7 @@ ZMK_BASE_LAYER(Lower,
                                 ___         ___         ___         ,   &kp ESC     ___
 )
 
-/* todo: num layer needs math symbols +-*/^%!()<>,. */
+/* todo: num layer needs math symbols +/-*^%!()<>,. */
 ZMK_BASE_LAYER(Num,
     ___     ___         ___         ___         ___         ___ ,   ___     &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___         ,
     ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___ ,   ___     &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     ___         ,
