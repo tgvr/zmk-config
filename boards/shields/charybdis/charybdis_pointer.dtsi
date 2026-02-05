@@ -1,5 +1,6 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include "zmk-helpers/key-labels/42.h"
 
 #define MOUSE 6
 #define SLOW 7
