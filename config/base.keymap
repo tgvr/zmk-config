@@ -140,9 +140,9 @@ ZMK_TAP_DANCE(td_bs_scrl_slow, bindings = <&lt SCROLL ESC>, <&mo SLOW>;
 
 /* Macros and defines */
 #define LOCK_SCREEN     &kp LG(LC(Q))   // Pin window across desktops.
-#define CUT             &kp LG(X)
-#define COPY            &kp LG(C)
-#define PASTE           &kp LG(V)
+#define B_CUT             &kp LG(X)
+#define B_COPY            &kp LG(C)
+#define B_PASTE           &kp LG(V)
 
 /* Keymap */
 
@@ -161,13 +161,12 @@ ZMK_BASE_LAYER(Base,
 )
 
 ZMK_BASE_LAYER(Lower,
-    ___ ___         CUT         COPY        PASTE       &kp TILDE   ,   &kp HOME    &kp PG_UP   &kp UP      &kp GRAVE   ___ ___         ,
-    ___ &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL    ,   &kp BSLH    &kp LEFT    &kp DOWN    &kp RIGHT   ___ ___         ,
-    ___ ___         &kp PIPE    &kp LBRC    &kp RBRC    &kp AT      ,   &kp END     &kp PG_DN   &kp LBKT    &kp RBKT    ___ &tog LOWER  ,
-                                ___         ___         ___         ,   ___         ___
+    ___ ___         B_CUT       B_COPY      B_PASTE     &kp TILDE   ,   &kp HOME    &kp PG_UP   &kp UP      &kp GRAVE   ___     ___         ,
+    ___ &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL    ,   &kp BSLH    &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
+    ___ ___         &kp PIPE    &kp LBRC    &kp RBRC    &kp AT      ,   &kp END     &kp PG_DN   &kp LBKT    &kp RBKT    ___     &tog LOWER  ,
+                                ___         ___         ___         ,   &kp ESC     ___
 )
 
-/* todo: rethink tab position */
 /* todo: num layer needs math symbols +-*/^%!()<>,. */
 ZMK_BASE_LAYER(Num,
     ___     ___         ___         ___         ___         ___ ,   ___     &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___         ,
