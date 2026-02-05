@@ -71,7 +71,7 @@ ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
              flavor = "balanced"; tapping-term-ms = <200>;
              quick-tap-ms = <QUICK_TAP_MS>;)
 ZMK_MOD_MORPH(magic_shift_tap, bindings = <&shift_repeat>, <&caps_word>;
-              mods = <(MOD_LSFT)>;)
+              mods = <(MOD_LSFT)>;)NATHEldldldld
 ZMK_ADAPTIVE_KEY(
     shift_repeat, bindings = <&sk LSHFT>;
     repeat {
@@ -132,7 +132,7 @@ ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
           tap-ms = <5>;)
 
 // Tap: BSPC | Hold: Trackball Scroll layer | tap once and then hold: Trackball Snipe layer
-ZMK_TAP_DANCE(td_bs_scrl_slow, bindings = <&lt SCROLL ESC>, <&mo SLOW>;
+ZMK_TAP_DANCE(td_bs_scrl_slow, bindings = <&lt SCROLL BSPC>, <&mo SLOW>;
               tapping-term-ms = <200>;)
 
 // // Sticky shift + leader.
@@ -154,8 +154,8 @@ ZMK_CONDITIONAL_LAYER(adjust, LOWER RAISE, ADJUST) // LOWER + RAISE --> ADJUST.
 #endif
 
 ZMK_BASE_LAYER(Base,
-    &kp TAB         &kp Q               &kp Y               &kp O               &kp U               &kp B           ,   &kp X           &kp L               &kp D           &kp P           &kp Z           XXX             ,
-    &kp ESC         &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &kp W           ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp K_CANCEL    ,
+    &kp TAB         &kp B               &kp Y               &kp O               &kp U               &kp Q           ,   &kp X           &kp L               &kp D           &kp P           &kp W           XXX             ,
+    &kp ESC         &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &kp Z           ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp K_CANCEL    ,
     MAGIC_SHIFT     &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_under_min       &mm_fslh_qm     ,   &kp J           &kp M               &kp G           &kp F           &kp V           &tog MEDIA      ,
                                                             &td_bs_scrl_slow    &lt_spc LOWER 0     SMART_NUM       ,   &kp ENTER       &lt RAISE R
 )
@@ -197,23 +197,24 @@ ZMK_BASE_LAYER(Media,
 )
 
 /* make sure to update excluded-positions in charybdis_pointer.dtsi if you're modifying this layer */
+/* note: K_CANCEL is not in those positions -- its intended not to be there. */
 ZMK_BASE_LAYER(Mouse,
-    ___     ___         ___         ___         ___         ___         ,   ___         ___         ___         ___         ___         ___         ,
-    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
-    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK   &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
-                                    ___         ___         ___         ,   ___         ___
+    ___     ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK       &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
+                                    ___         &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
 
 ZMK_BASE_LAYER(Slow,
-    ___     ___         ___         ___         ___         ___         ,   ___         ___         ___         ___         ___         ___         ,
-    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
-    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK   &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
-                                    ___         ___         ___         ,   ___         ___
+    ___     ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK       &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
+                                    ___         &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
 
 ZMK_BASE_LAYER(Scroll,
-    ___     ___         ___         ___         ___         ___         ,   ___         ___         ___         ___         ___         ___         ,
-    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
-    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK   &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
-                                    ___         ___         ___         ,   ___         ___
+    ___     ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK       &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
+                                    ___         &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
