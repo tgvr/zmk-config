@@ -103,6 +103,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 // SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 
 SIMPLE_MORPH(mm_eq_pl, SFT, &kp EQUAL, &kp PLUS)
+SIMPLE_MORPH(mm_min_under, SFT, &kp MINUS, &kp UNDER)
 SIMPLE_MORPH(mm_under_min, SFT, &kp UNDER, &kp MINUS)
 SIMPLE_MORPH(mm_sqt_dqt, SFT, &kp SQT, &kp DQT)
 SIMPLE_MORPH(mm_cm_lt, SFT, &kp COMMA, &kp LT)
@@ -154,9 +155,9 @@ ZMK_CONDITIONAL_LAYER(adjust, LOWER RAISE, ADJUST) // LOWER + RAISE --> ADJUST.
 #endif
 
 ZMK_BASE_LAYER(Base,
-    &kp TAB         &kp B               &kp Y               &kp O               &kp U               &kp Q           ,   &kp X           &kp L               &kp D           &kp P           &kp W           XXX             ,
-    &kp ESC         &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &kp Z           ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp K_CANCEL    ,
-    MAGIC_SHIFT     &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_under_min       &mm_fslh_qm     ,   &kp J           &kp M               &kp G           &kp F           &kp V           &tog MEDIA      ,
+    &kp TAB         &kp Q               &kp Y               &kp O               &kp U               &mm_min_under   ,   &kp X           &kp L               &kp D           &kp P           &kp Z           &kp K_CANCEL    ,
+    &kp B           &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &mm_eq_pl       ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp W           ,
+    MAGIC_SHIFT     &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_sc_co           &mm_fslh_qm     ,   &kp J           &kp M               &kp G           &kp F           &kp V           &tog MEDIA      ,
                                                             &lt SCROLL BSPC     &lt_spc LOWER 0     SMART_NUM       ,   &kp ENTER       &lt RAISE R
 )
 

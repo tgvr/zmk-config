@@ -20,6 +20,7 @@
     >;
 };
 
+/* todo: there is a bug here, fix it */
 &mkp_input_listener {
     input-processors = <&zip_temp_layer MOUSE AUTOMOUSE_KP_TIMEOUT_MS>;
 };
