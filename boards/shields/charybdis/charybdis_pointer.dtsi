@@ -20,9 +20,24 @@
     >;
 };
 
-/* todo: there is a bug here, fix it */
 &mkp_input_listener {
     input-processors = <&zip_temp_layer MOUSE AUTOMOUSE_KP_TIMEOUT_MS>;
+
+    /* scroll layer override */
+    scroller: scroller {
+        layers = <SCROLL>;
+        input-processors = <
+            &zip_temp_layer SCROLL AUTOMOUSE_KP_TIMEOUT_MS
+        >;
+    };
+
+    /* slow layer override */
+    slow_pointer: slow_pointer {
+        layers = <SLOW>;
+        input-processors = <
+            &zip_temp_layer SLOW AUTOMOUSE_KP_TIMEOUT_MS
+        >;
+    };
 };
 
 &trackball_listener {
@@ -37,7 +52,7 @@
         layers           = <SCROLL>;
         input-processors = <
             &zip_temp_layer SCROLL AUTOMOUSE_TIMEOUT_MS
-            &zip_y_scaler 1 30                               // Scales the scroll speed
+            &zip_y_scaler 1 40                               // Scales the scroll speed
             &zip_x_scaler 0 1                                // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the scroll direction
