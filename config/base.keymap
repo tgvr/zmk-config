@@ -158,7 +158,7 @@ ZMK_BASE_LAYER(Base,
     &kp TAB     &kp Q           &kp Y       &kp O           &kp U               &mm_min_under   ,   &kp X       &kp L           &kp D   &kp P   &kp Z   XXX         ,
     &kp B       &kp C           &kp I       &kp A           &kp E               &mm_eq_pl       ,   &kp K       &kp H           &kp T   &kp N   &kp S   &kp W       ,
     XXX         &mm_sqt_dqt     &mm_cm_lt   &mm_prd_gt      &mm_sc_co           &mm_fslh_qm     ,   &kp J       &kp M           &kp G   &kp F   &kp V   &tog MEDIA  ,
-                                            &lt SCROLL R    &lt LOWER SPACE     MAGIC_SHIFT     ,   SMART_NUM   &lt RAISE BSPC
+                                            &lt SCROLL R    &lt LOWER BSPC      MAGIC_SHIFT     ,   SMART_NUM   &lt RAISE SPACE
 )
 
 ZMK_BASE_LAYER(Lower,
