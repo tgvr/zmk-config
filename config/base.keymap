@@ -27,7 +27,7 @@
 };
 
 &lt {
-  flavor = "hold-preferred";
+  flavor = "balanced";
   tapping-term-ms = <200>;
   quick-tap-ms = <QUICK_TAP_MS>;
 };
@@ -155,17 +155,17 @@ ZMK_CONDITIONAL_LAYER(adjust, LOWER RAISE, ADJUST) // LOWER + RAISE --> ADJUST.
 #endif
 
 ZMK_BASE_LAYER(Base,
-    &kp TAB     &kp Q           &kp Y       &kp O           &kp U               &mm_min_under   ,   &kp X       &kp L           &kp D   &kp P   &kp Z   XXX         ,
-    &kp B       &kp C           &kp I       &kp A           &kp E               &mm_eq_pl       ,   &kp K       &kp H           &kp T   &kp N   &kp S   &kp W       ,
-    XXX         &mm_sqt_dqt     &mm_cm_lt   &mm_prd_gt      &mm_sc_co           &mm_fslh_qm     ,   &kp J       &kp M           &kp G   &kp F   &kp V   &tog MEDIA  ,
-                                            &lt SCROLL R    &lt LOWER BSPC      MAGIC_SHIFT     ,   SMART_NUM   &lt RAISE SPACE
+    &kp TAB     &kp Q           &kp Y       &kp O               &kp U               &mm_min_under   ,   &kp X           &kp L           &kp D   &kp P   &kp Z   XXX         ,
+    &kp B       &kp C           &kp I       &kp A               &kp E               &mm_eq_pl       ,   &kp K           &kp H           &kp T   &kp N   &kp S   &kp W       ,
+    XXX         &mm_sqt_dqt     &mm_cm_lt   &mm_prd_gt          &mm_sc_co           &mm_fslh_qm     ,   &kp J           &kp M           &kp G   &kp F   &kp V   &tog MEDIA  ,
+                                            &lt SCROLL BSPC     &lt LOWER SPACE     SMART_NUM       ,   MAGIC_SHIFT     &lt RAISE SPACE
 )
 
 ZMK_BASE_LAYER(Lower,
-    ___ &kp HOME    &kp PIPE    &kp LBRC    &kp RBRC    ___ ,   ___         &kp PG_UP   &kp UP      &kp GRAVE   ___     ___         ,
-    ___ &kp ESC     &kp LCTRL   &kp LALT    &kp LGUI    ___ ,   ___         &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
-    ___ &kp END     &sk LCTRL   &sk LALT    &sk LGUI    ___ ,   ___         &kp PG_DN   &kp PRCNT   &kp TILDE   ___     &tog LOWER  ,
-                                ___         ___         ___ ,   MAGIC_SHIFT ___
+    ___ &kp HOME    &kp PIPE    &kp LBRC    &kp RBRC    ___         ,   ___ &kp PG_UP   &kp UP      &kp GRAVE   ___     ___         ,
+    ___ &kp ESC     &kp LCTRL   &kp LALT    &kp LGUI    ___         ,   ___ &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
+    ___ &kp END     &sk LCTRL   &sk LALT    &sk LGUI    ___         ,   ___ &kp PG_DN   &kp PRCNT   &kp TILDE   ___     &tog LOWER  ,
+                                ___         ___         MAGIC_SHIFT ,   ___ ___
 )
 
 /* todo: num layer needs math symbols +/-*^%!()<>,. */
@@ -177,9 +177,9 @@ ZMK_BASE_LAYER(Num,
 )
 
 ZMK_BASE_LAYER(Raise,
-    ___ ___         &kp AMPS    &kp LPAR    &kp RPAR    ___ ,   ___ &kp AT      &kp EXCL    ___         ___         ___         ,
+    ___ ___         &kp AMPS    &kp LPAR    &kp RPAR    ___ ,   ___ &kp AT      &kp EXCL    &kp BSLH    ___         ___         ,
     ___ &kp TAB     &kp HASH    &kp LBKT    &kp RBKT    ___ ,   ___ &kp RGUI    &kp RALT    &kp RCTRL   &kp ENTER   ___         ,
-    ___ ___         &kp STAR    &kp BSLH    &kp FSLH    ___ ,   ___ &kp CARET   &kp DLLR    ___         ___         &tog RAISE  ,
+    ___ ___         &kp STAR    &kp CARET   &kp DLLR    ___ ,   ___ &sk RGUI    &sk RALT    &sk RCTRL   ___         &tog RAISE  ,
                                 ___         ___         ___ ,   ___ ___
 )
 
