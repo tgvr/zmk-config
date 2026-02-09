@@ -13,10 +13,12 @@
 &zip_temp_layer {
     require-prior-idle-ms = <200>;
     excluded-positions = <
-        LM1 LM2 LM3 LM4
-        LB0 LB1 LB2 LB3
-        RM1 RM2 RM3 RM4
+        LM1 LM2 LM3
+        LB0 LB1 LB2 LB3 RB5
+        LH0 LH2
+        RM1 RM2 RM3
         RB0 RB1 RB2 RB3 RB5
+        RH0
     >;
 };
 
