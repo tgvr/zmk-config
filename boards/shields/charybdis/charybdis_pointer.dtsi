@@ -1,18 +1,59 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include "zmk-helpers/key-labels/42.h"
+#include <behaviors.dtsi>
 
-#define SLOW 5
-#define SCROLL 6
+#define MOUSE 6
+#define SLOW 7
+#define SCROLL 8
+
+#define AUTOMOUSE_TIMEOUT_MS 750    // determines how long the AML is active when trackball is rotated
+#define AUTOMOUSE_KP_TIMEOUT_MS 250 // determines how long the AML is extended when a key press on the AML is done
+
+&zip_temp_layer {
+    require-prior-idle-ms = <200>;
+    excluded-positions = <
+        LM1 LM2 LM3 LM4
+        LB0 LB1 LB2 LB3
+        RM1 RM2 RM3 RM4
+        RB0 RB1 RB2 RB3 RB5
+    >;
+};
+
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer MOUSE AUTOMOUSE_KP_TIMEOUT_MS>;
+
+    /* scroll layer override */
+    scroller_mkp: scroller_mkp {
+        layers = <SCROLL>;
+        input-processors = <
+            &zip_temp_layer SCROLL AUTOMOUSE_KP_TIMEOUT_MS
+        >;
+    };
+
+    /* slow layer override */
+    slow_pointer_mkp: slow_pointer_mkp {
+        layers = <SLOW>;
+        input-processors = <
+            &zip_temp_layer SLOW AUTOMOUSE_KP_TIMEOUT_MS
+        >;
+    };
+};
 
 &trackball_listener {
     /* base processor chain on all layers */
-    input-processors = <&zip_xy_scaler 5 5>;
+    input-processors = <
+        &zip_temp_layer MOUSE AUTOMOUSE_TIMEOUT_MS
+        &zip_xy_scaler 5 5
+    >;
 
     /* scroll layer override */
     scroller: scroller {
         layers           = <SCROLL>;
         input-processors = <
-            &zip_xy_scaler 1 15                              // Scales the scroll speed
+            &zip_temp_layer SCROLL AUTOMOUSE_TIMEOUT_MS
+            &zip_y_scaler 1 40                               // Scales the scroll speed
+            &zip_x_scaler 0 1                                // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the scroll direction
         >;
@@ -21,6 +62,9 @@
     /* slow-pointer layer override */
     slow_pointer: slow_pointer {
         layers           = <SLOW>;
-        input-processors = <&zip_xy_scaler 2 6>;
+        input-processors = <
+            &zip_temp_layer SLOW AUTOMOUSE_TIMEOUT_MS
+            &zip_xy_scaler 1 2
+        >;
     };
 };

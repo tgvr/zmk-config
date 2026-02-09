@@ -5,5 +5,7 @@
 #define NUM 2
 #define RAISE 3
 #define ADJUST 4
-#define SLOW 5
-#define SCROLL 6
+#define MEDIA 5
+#define MOUSE 6
+#define SLOW 7
+#define SCROLL 8

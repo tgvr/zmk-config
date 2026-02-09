@@ -104,6 +104,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 
 SIMPLE_MORPH(mm_eq_pl, SFT, &kp EQUAL, &kp PLUS)
 SIMPLE_MORPH(mm_min_under, SFT, &kp MINUS, &kp UNDER)
+SIMPLE_MORPH(mm_under_min, SFT, &kp UNDER, &kp MINUS)
 SIMPLE_MORPH(mm_sqt_dqt, SFT, &kp SQT, &kp DQT)
 SIMPLE_MORPH(mm_cm_lt, SFT, &kp COMMA, &kp LT)
 SIMPLE_MORPH(mm_prd_gt, SFT, &kp PERIOD, &kp GT)
@@ -131,15 +132,18 @@ SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
 ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
           tap-ms = <5>;)
 
-// Tap: Escape | Hold: Trackball Scroll layer | tap once and then hold: Trackball Snipe layer
-ZMK_TAP_DANCE(td_esc_scrl_slow, bindings = <&lt SCROLL ESC>, <&mo SLOW>;
-              tapping-term-ms = <200>;)
+// Tap: BSPC | Hold: Trackball Scroll layer | tap once and then hold: Trackball Snipe layer
+// ZMK_TAP_DANCE(td_bs_scrl_slow, bindings = <&lt SCROLL BSPC>, <&mo SLOW>;
+//               tapping-term-ms = <200>;)
 
 // // Sticky shift + leader.
 // ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 
 /* Macros and defines */
-#define LOCK_SCREEN   &kp LG(LC(Q))       // Pin window across desktops.
+#define LOCK_SCREEN     &kp LG(LC(Q))   // Pin window across desktops.
+#define B_CUT             &kp LG(X)
+#define B_COPY            &kp LG(C)
+#define B_PASTE           &kp LG(V)
 
 /* Keymap */
 
@@ -151,50 +155,67 @@ ZMK_CONDITIONAL_LAYER(adjust, LOWER RAISE, ADJUST) // LOWER + RAISE --> ADJUST.
 #endif
 
 ZMK_BASE_LAYER(Base,
-    &kp TAB     &kp Q               &kp Y               &kp O               &kp U               &mm_eq_pl       ,   &kp X           &kp L               &kp D           &kp P           &kp Z           XXX     ,
-    &kp B       &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &mm_min_under   ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp W   ,
-    XXX         &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_fslh_qm         &mm_sc_co       ,   &kp J           &kp M               &kp G           &kp F           &kp V           XXX     ,
-                                                        &td_esc_scrl_slow   &lt_spc LOWER 0     SMART_NUM       ,   MAGIC_SHIFT     &lt RAISE R
+    &kp TAB         &kp Q               &kp Y               &kp O               &kp U               &mm_min_under   ,   &kp X           &kp L               &kp D           &kp P           &kp Z           &kp K_CANCEL    ,
+    &kp B           &hml LCTRL C        &hml LSHFT I        &hml LALT A         &hml LGUI E         &mm_eq_pl       ,   &kp K           &hmr RGUI H         &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp W           ,
+    MAGIC_SHIFT     &mm_sqt_dqt         &mm_cm_lt           &mm_prd_gt          &mm_sc_co           &mm_fslh_qm     ,   &kp J           &kp M               &kp G           &kp F           &kp V           &tog MEDIA      ,
+                                                            &lt SCROLL BSPC     &lt_spc LOWER 0     SMART_NUM       ,   &kp ENTER       &lt RAISE R
 )
 
 ZMK_BASE_LAYER(Lower,
-    ___         &kp C_BRI_UP    &kp C_VOL_UP    &kp LBKT    &kp RBKT    &kp TILDE   ,   &kp HOME    &kp PG_UP   &kp UP      &kp C_PREV  ___         ___ ,
-    &kp C_MUTE  &kp LCTRL       &kp LSHFT       &kp LALT    &kp LGUI    &kp GRAVE   ,   &kp BSPC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp C_PP    ___ ,
-    ___         &kp C_BRI_DN    &kp C_VOL_DN    &kp LBRC    &kp RBRC    &kp BSLH    ,   &kp END     &kp PG_DN   &kp PIPE    &kp C_NEXT  ___         ___ ,
-                                                ___         ___         ___         ,   ___         ___
+    ___ ___         B_CUT       B_COPY      B_PASTE     &kp TILDE   ,   &kp HOME    &kp PG_UP   &kp UP      &kp GRAVE   ___     ___         ,
+    ___ &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL    ,   &kp BSLH    &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
+    ___ ___         &kp PIPE    &kp LBRC    &kp RBRC    &kp AT      ,   &kp END     &kp PG_DN   &kp LBKT    &kp RBKT    ___     &tog LOWER  ,
+                                ___         ___         ___         ,   &kp ESC     ___
 )
 
+/* todo: num layer needs math symbols +/-*^%!()<>,. */
 ZMK_BASE_LAYER(Num,
-    ___     ___         &kp AT      &kp HASH    &kp CARET   &kp DLLR                    ,   &kp STAR    &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___ ,
-    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    &kp EXCL                    ,   &kp PLUS    &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     &kp PRCNT ,
-    ___     ___         &kp AMPS    &kp LPAR    &kp RPAR    &uc UC_CURR_INDIAN_RUPEE    ,   &kp N0      &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     ___ ,
-                                    ___         ___         ___                         ,   ___         ___
+    ___     ___         ___         ___         ___         ___ ,   ___     &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___ ,   ___     &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     ___         ,
+    ___     ___         ___         ___         ___         ___ ,   &kp N0  &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     &tog NUM    ,
+                                    ___         ___         ___ ,   ___     ___
 )
 
 ZMK_BASE_LAYER(Raise,
-    ___     ___     ___     ___     LOCK_SCREEN     ___     ,   ___     ___     ___     ___     ___     ___ ,
-    ___     ___     ___     ___     ___             ___     ,   ___     ___     ___     ___     ___     ___ ,
-    ___     ___     ___     ___     ___             ___     ,   ___     ___     ___     ___     ___     ___ ,
-                            ___     ___             ___     ,   ___     ___
+    ___     ___         &kp LT      &kp GT      &kp EQUAL   ___ ,   ___     &kp HASH    &kp PRCNT   &kp AMPS    ___         ___         ,
+    ___     &kp FSLH    &kp STAR    &kp MINUS   &kp PLUS    ___ ,   ___     &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     &kp SEMI    &kp COLON   &kp LPAR    &kp RPAR    ___ ,   ___     &kp CARET   &kp DLLR    &kp BSLH    ___         &tog RAISE  ,
+                                    ___         ___         ___ ,   ___     ___
 )
 
 ZMK_BASE_LAYER(Adjust,
-    &studio_unlock  ___     ___     ___     ___     ___             ,   &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &out OUT_TOG    &bt BT_CLR ,
-    ___             ___     ___     ___     ___     &bootloader     ,   &bootloader     ___             ___             ___             ___             ___ ,
-    ___             ___     ___     ___     ___     &sys_reset      ,   &sys_reset      ___             ___             ___             ___             ___ ,
-                                    ___     ___     ___             ,   ___             ___
+    &studio_unlock  ___     ___     &kp C_BRI_UP    &kp C_VOL_UP    ___ ,   &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &out OUT_TOG    &bt BT_CLR  ,
+    ___             ___     ___     LOCK_SCREEN     &kp C_MUTE      ___ ,   ___             &kp C_PREV      &kp C_PP        &kp C_NEXT      ___             ___         ,
+    ___             ___     ___     &kp C_BRI_DN    &kp C_VOL_DN    ___ ,   ___             ___             ___             ___             ___             &tog ADJUST ,
+                                    ___             ___             ___ ,   ___             ___
+)
+
+ZMK_BASE_LAYER(Media,
+    ___         ___     &kp C_PREV  &kp UP          &kp C_NEXT      ___ ,   ___     &kp C_PREV  &kp UP          &kp C_NEXT      ___     ___         ,
+    ___         ___     &kp LEFT    &kp DOWN        &kp RIGHT       ___ ,   ___     &kp LEFT    &kp DOWN        &kp RIGHT       ___     ___         ,
+    &tog MEDIA  ___     &kp C_MUTE  &kp C_VOL_DN    &kp C_VOL_UP    ___ ,   ___     &kp C_MUTE  &kp C_VOL_DN    &kp C_VOL_UP    ___     &tog MEDIA  ,
+                                     ___            &kp C_PP        ___ ,   ___     &kp C_PP
+)
+
+/* make sure to update excluded-positions in charybdis_pointer.dtsi if you're modifying this layer */
+/* note: K_CANCEL is not in those positions -- its intended not to be there. */
+ZMK_BASE_LAYER(Mouse,
+    ___     ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK       &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
+                                    ___         &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
 
 ZMK_BASE_LAYER(Slow,
-    ___     ___     ___     ___     ___     ___     ,   ___     ___     ___     ___     ___     ___ ,
-    ___     ___     ___     ___     ___     ___     ,   ___     ___     ___     ___     ___     ___ ,
-    ___     ___     ___     ___     ___     ___     ,   ___     ___     ___     ___     ___     ___ ,
-                            ___     ___     ___     ,   ___     ___
+    ___     ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK       &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
+                                    ___         &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
 
 ZMK_BASE_LAYER(Scroll,
-    ___     ___     ___     ___     ___     ___     ,   ___     ___     ___     ___     ___     ___ ,
-    ___     ___     ___     ___     ___     ___     ,   ___     ___     ___     ___     ___     ___ ,
-    ___     ___     ___     ___     ___     ___     ,   ___     ___     ___     ___     ___     ___ ,
-                            ___     ___     ___     ,   ___     ___
+    ___     ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
+    ___     &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
+    ___     ___         &mkp MB4    &mkp RCLK   &mkp LCLK       &mkp MB5    ,   &mkp MB5    &mkp LCLK   &mkp RCLK   &mkp MB4    ___         &tog MOUSE  ,
+                                    ___         &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
