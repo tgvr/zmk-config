@@ -24,7 +24,7 @@
     input-processors = <&zip_temp_layer MOUSE AUTOMOUSE_KP_TIMEOUT_MS>;
 
     /* scroll layer override */
-    scroller: scroller {
+    scroller_mkp: scroller_mkp {
         layers = <SCROLL>;
         input-processors = <
             &zip_temp_layer SCROLL AUTOMOUSE_KP_TIMEOUT_MS
@@ -32,7 +32,7 @@
     };
 
     /* slow layer override */
-    slow_pointer: slow_pointer {
+    slow_pointer_mkp: slow_pointer_mkp {
         layers = <SLOW>;
         input-processors = <
             &zip_temp_layer SLOW AUTOMOUSE_KP_TIMEOUT_MS
