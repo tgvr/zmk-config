@@ -58,6 +58,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
   ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
+#define MAKE_MOD(NAME, MOD)                                                    \
+    ZMK_HOLD_TAP(NAME, bindings = &kp <MOD>, &sk <MOD>;                        \
+                 flavor = "hold-preferred"; tapping-term-ms = <200>;)
+
+MAKE_MOD(hmod)
+
 /* Combos, leader key sequences, mouse emulation */
 
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
@@ -162,9 +168,9 @@ ZMK_BASE_LAYER(Base,
 )
 
 ZMK_BASE_LAYER(Lower,
-    ___ &kp HOME    &kp PIPE    &kp LBRC    &kp RBRC    ___         ,   ___ &kp PG_UP   &kp UP      &kp GRAVE   ___     ___         ,
-    ___ &kp ESC     &kp LCTRL   &kp LALT    &kp LGUI    ___         ,   ___ &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
-    ___ &kp END     &sk LCTRL   &sk LALT    &sk LGUI    ___         ,   ___ &kp PG_DN   &kp PRCNT   &kp TILDE   ___     &tog LOWER  ,
+    ___ &kp HOME    &kp PIPE    &kp LBRC    &kp RBRC    ___         ,   ___ &kp PG_UP   &kp UP      ___         ___     ___         ,
+    ___ &kp ESC     &hmod LCTRL &hmod LALT  &hmod LGUI  ___         ,   ___ &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
+    ___ &kp END     &kp PRCNT   &kp GRAVE   &kp TILDE   ___         ,   ___ &kp PG_DN   ___         ___         ___     &tog LOWER  ,
                                 ___         ___         MAGIC_SHIFT ,   ___ ___
 )
 
@@ -178,8 +184,8 @@ ZMK_BASE_LAYER(Num,
 
 ZMK_BASE_LAYER(Raise,
     ___ ___         &kp AMPS    &kp LPAR    &kp RPAR    ___ ,   ___ &kp AT      &kp EXCL    &kp BSLH    ___         ___         ,
-    ___ &kp TAB     &kp HASH    &kp LBKT    &kp RBKT    ___ ,   ___ &kp RGUI    &kp RALT    &kp RCTRL   &kp ENTER   ___         ,
-    ___ ___         &kp STAR    &kp CARET   &kp DLLR    ___ ,   ___ &sk RGUI    &sk RALT    &sk RCTRL   ___         &tog RAISE  ,
+    ___ &kp TAB     &kp HASH    &kp LBKT    &kp RBKT    ___ ,   ___ &hmod RGUI  &hmod RALT  &hmod RCTRL &kp ENTER   ___         ,
+    ___ ___         &kp STAR    &kp CARET   &kp DLLR    ___ ,   ___ ___         ___         ___         ___         &tog RAISE  ,
                                 ___         ___         ___ ,   ___ ___
 )
 
