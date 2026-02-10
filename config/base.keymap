@@ -30,7 +30,6 @@
   flavor = "balanced";
   tapping-term-ms = <200>;
   quick-tap-ms = <QUICK_TAP_MS>;
-  require-prior-idle-ms = <150>;
 };
 
 &uc {
@@ -163,15 +162,15 @@ ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
 #endif
 
 ZMK_BASE_LAYER(Base,
-    XXX &kp B   &kp Y   &kp O       &kp U       &mm_min_under   ,   &kp X       &kp L       &kp D   &kp P   &kp Z   XXX         ,
-    XXX &kp C   &kp I   &kp A       &kp E       &mm_eq_pl       ,   &kp K       &kp H       &kp T   &kp N   &kp S   XXX         ,
-    XXX &kp W   &kp Q   &mm_cm_lt   &mm_prd_gt  &mm_fslh_qm     ,   &kp J       &kp M       &kp G   &kp F   &kp V   &tog MEDIA  ,
-                        SCROLL_BS   LOWER_SPACE DICTATION       ,   SMART_NUM   RAISE_R
+    XXX &kp B           &kp Y           &kp O           &kp U           &mm_min_under   ,   &kp X           &kp L           &kp D           &kp P           &kp Z   XXX         ,
+    XXX &hml LCTRL C    &hml LSHFT I    &hml LALT A     &hml LGUI E     &mm_eq_pl       ,   &hmr RGUI K     &hmr RALT H     &hmr RSHFT T    &hmr RCTRL N    &kp S   XXX         ,
+    XXX &kp W           &kp Q           &mm_cm_lt       &mm_prd_gt      &mm_fslh_qm     ,   &kp J           &kp M           &kp G           &kp F           &kp V   &tog MEDIA  ,
+                                        SCROLL_BS       LOWER_SPACE     DICTATION       ,   SMART_NUM       RAISE_R
 )
 
 ZMK_BASE_LAYER(Lower,
     ___ &kp HOME    &kp PIPE    &kp LBRC    &kp RBRC    ___ ,   ___ &kp PG_UP   &kp UP      ___         ___     ___         ,
-    ___ HMOD(LCTRL) HMOD(LSHFT) HMOD(LALT)  HMOD(LGUI)  ___ ,   ___ &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
+    ___ &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___ ,   ___ &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB ___         ,
     ___ &kp END     &kp PRCNT   &kp SQT     &kp DQT     ___ ,   ___ &kp PG_DN   &kp TILDE   &kp GRAVE   ___     &tog LOWER  ,
                                 ___         ___         ___ ,   ___ &kp ENTER
 )
@@ -186,7 +185,7 @@ ZMK_BASE_LAYER(Num,
 
 ZMK_BASE_LAYER(Raise,
     ___ ___ &kp AMPS    &kp LPAR    &kp RPAR    ___ ,   ___ &kp AT      &kp EXCL        &kp BSLH    ___         ___         ,
-    ___ ___ &kp HASH    &kp LBKT    &kp RBKT    ___ ,   ___ HMOD(RGUI)  HMOD(RALT)      HMOD(RSHFT) HMOD(RCTRL) ___         ,
+    ___ ___ &kp HASH    &kp LBKT    &kp RBKT    ___ ,   ___ &kp RGUI    &kp RALT        &kp RSHFT   &kp RCTRL   ___         ,
     ___ ___ &kp STAR    &kp CARET   &kp DLLR    ___ ,   ___ &kp COLON   &kp SEMICOLON   ___         ___         &tog RAISE  ,
                         ___         &kp ESC     ___ ,   ___ ___
 )
