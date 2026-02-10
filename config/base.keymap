@@ -58,7 +58,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
   ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
-ZMK_HOLD_TAP(hmod, bindings = &kp, &sk;                                        \
+ZMK_HOLD_TAP(hmod, bindings = <&kp &sk>;                                        \
              flavor = "hold-preferred"; tapping-term-ms = <200>;)
 
 #define HMOD(mod) &hmod mod mod
