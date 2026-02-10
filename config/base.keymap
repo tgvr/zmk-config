@@ -151,6 +151,9 @@ ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
 #define B_COPY            &kp LG(C)
 #define B_PASTE           &kp LG(V)
 #define DICTATION         &kp LG(LCTRL)
+#define SCROLL_BS         &lt SCROLL BSPC
+#define LOWER_SPACE       &lt LOWER SPACE
+#define RAISE_R           &lt RAISE R
 
 /* Keymap */
 
@@ -160,10 +163,10 @@ ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
 #endif
 
 ZMK_BASE_LAYER(Base,
-    &kp TAB     &kp P   &kp Y       &kp O           &kp U       &mm_min_under   ,   &kp X       &kp L       &kp D   &kp M   &kp Z   XXX         ,
-    &kp B       &kp C   &kp I       &kp A           &kp E       &mm_eq_pl       ,   &kp K       &kp H       &kp T   &kp N   &kp S   &kp W       ,
-    XXX         &kp Q   &mm_cm_lt   &mm_prd_gt      &kp SPACE   &mm_fslh_qm     ,   &kp J       &kp R       &kp G   &kp F   &kp V   &tog MEDIA  ,
-                                    &lt SCROLL BSPC &mo LOWER   DICTATION       ,   SMART_NUM   &mo RAISE
+    XXX &kp B   &kp Y   &kp O       &kp U       &mm_min_under   ,   &kp X       &kp L       &kp D   &kp P   &kp Z   XXX         ,
+    XXX &kp C   &kp I   &kp A       &kp E       &mm_eq_pl       ,   &kp K       &kp H       &kp T   &kp N   &kp S   XXX         ,
+    XXX &kp W   &kp Q   &mm_cm_lt   &mm_prd_gt  &mm_fslh_qm     ,   &kp J       &kp M       &kp G   &kp F   &kp V   &tog MEDIA  ,
+                        SCROLL_BS   LOWER_SPACE DICTATION       ,   SMART_NUM   RAISE_R
 )
 
 ZMK_BASE_LAYER(Lower,
