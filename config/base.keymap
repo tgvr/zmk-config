@@ -161,11 +161,13 @@ ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
       ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
 #endif
 
+
+
 ZMK_BASE_LAYER(Base,
-    XXX &kp B           &kp Y           &kp O           &kp U           &mm_min_under   ,   &kp X           &kp L           &kp D           &kp P           &kp Z   XXX         ,
-    XXX &hml LCTRL C    &hml LSHFT I    &hml LALT A     &hml LGUI E     &mm_eq_pl       ,   &hmr RGUI K     &hmr RALT H     &hmr RSHFT T    &hmr RCTRL N    &kp S   XXX         ,
-    XXX &kp W           &kp Q           &mm_cm_lt       &mm_prd_gt      &mm_fslh_qm     ,   &kp J           &kp M           &kp G           &kp F           &kp V   &tog MEDIA  ,
-                                        SCROLL_BS       LOWER_SPACE     DICTATION       ,   SMART_NUM       RAISE_R
+    XXX &kp Q           &kp Y           &kp O           &kp U           &mm_min_under   ,   &kp X       &kp L           &kp D           &kp P           &kp Z           XXX         ,
+    XXX &hml LCTRL C    &hml LSHFT I    &hml LALT A     &hml LGUI E     &mm_eq_pl       ,   &kp K       &hmr RGUI H     &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    XXX         ,
+    XXX &kp W           &kp B           &mm_cm_lt       &mm_prd_gt      &mm_fslh_qm     ,   &kp J       &kp M           &kp G           &kp F           &kp V           &tog MEDIA  ,
+                                        SCROLL_BS       LOWER_SPACE     SMART_NUM       ,   DICTATION   RAISE_R
 )
 
 ZMK_BASE_LAYER(Lower,
@@ -177,10 +179,10 @@ ZMK_BASE_LAYER(Lower,
 
 /* todo: num layer needs math symbols +/-*^%!()<>,. */
 ZMK_BASE_LAYER(Num,
-    ___ ___ ___ ___ ___ ___         ,   ___     &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___         ,
-    ___ ___ ___ ___ ___ ___         ,   ___     &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     ___         ,
-    ___ ___ ___ ___ ___ ___         ,   &kp N0  &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     &tog NUM    ,
-                ___ ___ &mo ADJUST  ,   ___     ___
+    ___ ___         ___         ___         ___         ___ ,   ___         &mm_n7_f7   &mm_n8_f8   &mm_n9_f9   &mm_dv_f10      ___         ,
+    ___ &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI    ___ ,   ___         &mm_n4_f4   &mm_n5_f5   &mm_n6_f6   &mm_min_f11     ___         ,
+    ___ ___         ___         ___         ___         ___ ,   &kp N0      &mm_n1_f1   &mm_n2_f2   &mm_n3_f3   &mm_prd_f12     &tog NUM    ,
+                                ___         ___         ___ ,   &mo ADJUST  ___
 )
 
 ZMK_BASE_LAYER(Raise,
@@ -213,6 +215,7 @@ ZMK_BASE_LAYER(Mouse,
                                         &mo SCROLL  &kp K_CANCEL    ___         ,   ___         &kp K_CANCEL
 )
 
+/* note: currently not being used */
 ZMK_BASE_LAYER(Slow,
     ___         ___         ___         ___         ___             ___         ,   ___         ___         ___         ___         ___         ___         ,
     ___         &kp LCTRL   &kp LSHFT   &kp LALT    &kp LGUI        ___         ,   ___         &kp RGUI    &kp RALT    &kp RSHFT   &kp RCTRL   ___         ,
