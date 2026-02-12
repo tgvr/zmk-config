@@ -28,7 +28,7 @@
 
 &lt {
   flavor = "balanced";
-  tapping-term-ms = <200>;
+  tapping-term-ms = <280>;
   quick-tap-ms = <QUICK_TAP_MS>;
 };
 
@@ -164,10 +164,10 @@ ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
 
 
 ZMK_BASE_LAYER(Base,
-    XXX &kp Q           &kp Y           &kp O           &kp U           &mm_min_under   ,   &kp X       &kp L           &kp D           &kp P           &kp Z           XXX         ,
-    XXX &hml LCTRL C    &hml LSHFT I    &hml LALT A     &hml LGUI E     &mm_eq_pl       ,   &kp K       &hmr RGUI H     &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    XXX         ,
-    XXX &kp W           &kp B           &mm_cm_lt       &mm_prd_gt      &mm_fslh_qm     ,   &kp J       &kp M           &kp G           &kp F           &kp V           &tog MEDIA  ,
-                                        SCROLL_BS       LOWER_SPACE     SMART_NUM       ,   DICTATION   RAISE_R
+    XXX     &kp Q           &kp Y           &kp O           &kp U           &mm_min_under   ,   &kp X       &kp L           &kp D           &kp P           &kp Z           XXX         ,
+    &kp B   &hml LCTRL C    &hml LSHFT I    &hml LALT A     &hml LGUI E     &mm_eq_pl       ,   &kp K       &hmr RGUI H     &hmr RALT T     &hmr RSHFT N    &hmr RCTRL S    &kp W       ,
+    XXX     &mm_sqt_dqt     &mm_sc_co       &mm_cm_lt       &mm_prd_gt      &mm_fslh_qm     ,   &kp J       &kp M           &kp G           &kp F           &kp V           &tog MEDIA  ,
+                                            SCROLL_BS       LOWER_SPACE     SMART_NUM       ,   DICTATION   RAISE_R
 )
 
 ZMK_BASE_LAYER(Lower,
